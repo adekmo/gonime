@@ -4,6 +4,8 @@ import { Navbar } from './components'
 import { Route, Routes } from 'react-router-dom'
 import Feed from './pages/Feed'
 import Detail from './pages/Detail'
+import Stream from './pages/Stream'
+import SearchFeed from './pages/SearchFeed'
 
 const App = () => {
 
@@ -37,6 +39,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Feed />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/stream/:id" element={<Stream />} />
+        <Route path="/search/:searchTerm" element={<SearchFeed />} />
       </Routes>
     </div>
   )

@@ -1,15 +1,30 @@
 import React, { useState } from 'react';
-import { close, logo, menu } from '../assets';
-import { navLinks } from '../constants.js';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
-  const [toggle, setToggle] = useState(false);
+  const [searchTerms, setSearchTerms] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (searchTerms) {
+      navigate(`/search/${searchTerms}`);
+
+      setSearchTerms('');
+    }
+  }
+
 
   return (
     <nav className='w-full flex py-6 justify-between items-center'>
-      <p className='font-poppins font-bold text-white text-[38px] w-[124px] h-[32px]'><span className="text-teal-500">Go</span>Nime</p>
-      <input type="text" placeholder='search' className="px-3 py-2 rounded-xl w-[500px] bg-slate-200 text-black focus:outline-none focus:ring-teal-500 focus:ring-1 text-lg focus:border-teal-500"/>
+      <Link to="/">
+        <p className='font-poppins font-bold text-white text-[38px] w-[124px] h-[32px]'><span className="text-teal-500">Go</span>Nime</p>
+      </Link>
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder='search' value={searchTerms} onChange={(e) => setSearchTerms(e.target.value)} className="px-3 py-2 rounded-xl w-[500px] bg-slate-200 text-black focus:outline-none focus:ring-teal-500 focus:ring-1 text-lg focus:border-teal-500" />
+      </form>
 
 
       {/* <div className='sm:hidden flex flex-1 justify-end items-center'>

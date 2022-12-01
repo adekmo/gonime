@@ -33,9 +33,9 @@ const Hero = () => {
                     {topAnime?.map((vid, i) =>
                     (
                         <SwiperSlide key={i} style={{ width: '25%', height: '400px' }} className="rounded-full animate-slideright">
-                            {/* <Link to={`/artists/${song?.artists[0].adamid}`}> */}
+                            <Link to={`/detail/${vid.animeId}`}>
                                 <img src={vid?.animeImg} alt="name" className="w-[90%] h-[75%] object-cover rounded-[20%] shadow-lg shadow-teal-500/80" />
-                            {/* </Link> */}
+                            </Link>
                                 <h1 className='text-white font-poppins text-lg p-3 mt-5 rounded-md'>{vid.animeTitle}</h1>
                         </SwiperSlide>
                     )
